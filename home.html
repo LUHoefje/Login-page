@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Northstar workspace dashboard.">
+    <title>Workspace | Northstar</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header class="home-header">
+        <a class="brand" href="home.html" aria-label="Northstar workspace">
+            <span class="brand-mark">N</span>
+            <span>Northstar</span>
+        </a>
+        <nav class="home-nav" aria-label="Workspace navigation">
+            <a class="active" href="#overview">Overview</a>
+            <a href="#projects">Projects</a>
+            <a href="#journal">Journal</a>
+        </nav>
+        <a class="profile-link" href="index.html">Sign out <span aria-hidden="true">-&gt;</span></a>
+    </header>
+
+    <main>
+        <section class="home-hero" id="overview">
+            <div class="hero-copy">
+                <p class="eyebrow">Tuesday, September 8, 2026</p>
+                <h1>Good morning,<br><em>Lukas.</em></h1>
+                <p class="hero-text">A clear view of what is moving, what needs attention, and where your best energy can go today.</p>
+                <a class="primary-action" href="#projects">Open your projects <span aria-hidden="true">-&gt;</span></a>
+            </div>
+            <div class="focus-card">
+                <div class="focus-card-top">
+                    <span class="card-label">Focus for today</span>
+                    <span class="focus-icon" aria-hidden="true">+</span>
+                </div>
+                <h2>Make one useful thing better.</h2>
+                <div class="progress-row">
+                    <span>Weekly momentum</span>
+                    <strong>68%</strong>
+                </div>
+                <div class="progress-track"><span></span></div>
+                <p>Three small steps are already in motion. Keep the signal clear.</p>
+            </div>
+        </section>
+
+        <section class="overview-grid" id="projects" aria-label="Workspace overview">
+            <article class="overview-card project-card">
+                <div class="card-heading">
+                    <span class="card-label">Active projects</span>
+                    <a href="#projects" aria-label="View all projects">View all <span aria-hidden="true">-&gt;</span></a>
+                </div>
+                <strong class="big-number">04</strong>
+                <p>Projects have a next step waiting for you.</p>
+                <div class="project-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            </article>
+            <article class="overview-card journal-card" id="journal">
+                <div class="card-heading">
+                    <span class="card-label">Daily note</span>
+                    <span class="date-mark">08 / 09</span>
+                </div>
+                <blockquote>“Attention is the beginning of devotion.”</blockquote>
+                <p>Take a moment to notice what deserves yours.</p>
+            </article>
+            <article class="overview-card people-card">
+                <div class="card-heading">
+                    <span class="card-label">In your orbit</span>
+                    <span class="online-dot">3 online</span>
+                </div>
+                <div class="avatars" aria-label="Three team members online"><span>AM</span><span>JR</span><span>SK</span></div>
+                <p>Your team is making progress together.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="home-footer">
+        <span>Northstar workspace</span>
+        <span>Keep moving with intention.</span>
+    </footer>
+</body>
+</html>
