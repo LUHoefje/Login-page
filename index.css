@@ -1,11 +1,11 @@
 		:root {
-			--ink: #17221b;
-			--muted: #6d776f;
-			--line: #dfe5dd;
-			--paper: #fbfaf6;
-			--leaf: #2f6b4f;
-			--leaf-dark: #24533d;
-			--gold: #e8b75a;
+			--ink: #16253d;
+			--muted: #68758a;
+			--line: #d8e0eb;
+			--paper: #f1f6fc;
+			--leaf: #2563a8;
+			--leaf-dark: #174475;
+			--gold: #8dc5f2;
 		}
 
 		* {
@@ -16,25 +16,64 @@
 			min-height: 100vh;
 			margin: 0;
 			color: var(--ink);
-			background: #e6eee6;
+			background: #e7f0f9;
 			font-family: Georgia, 'Times New Roman', serif;
 		}
 
 		.page {
-			display: grid;
-			grid-template-columns: minmax(280px, 0.9fr) minmax(420px, 1.1fr);
+			position: relative;
+			display: block;
 			min-height: 100vh;
 			overflow: hidden;
+		}
+
+		.topbar {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			z-index: 4;
+			padding: 1.5rem clamp(2rem, 7vw, 6rem);
+			color: #f4f8fd;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+		}
+
+		.topbar .brand {
+			position: static;
+			color: #f4f8fd;
+		}
+
+		.info-links {
+			display: flex;
+			align-items: center;
+			gap: clamp(1.25rem, 3vw, 2.75rem);
+		}
+
+		.info-links a {
+			color: #e1effb;
+			font: 0.78rem Arial, sans-serif;
+			font-weight: bold;
+			text-decoration: none;
+		}
+
+		.info-links a:hover,
+		.info-links a:focus-visible {
+			color: #fff;
+			text-decoration: underline;
 		}
 
 		.welcome {
 			position: relative;
 			display: flex;
 			align-items: flex-end;
+			min-height: 100vh;
 			padding: clamp(2rem, 7vw, 6rem);
 			overflow: hidden;
-			color: #f5f3ea;
-			background: linear-gradient(145deg, #214b3b 0%, #326b50 48%, #8aa477 100%);
+			color: #f4f8fd;
+			background: linear-gradient(145deg, #12345c 0%, #2563a8 52%, #6ca8d8 100%);
 		}
 
 		.welcome::before,
@@ -59,19 +98,6 @@
 			top: 28%;
 		}
 
-		.brand {
-			position: absolute;
-			top: clamp(2rem, 5vw, 4rem);
-			left: clamp(2rem, 7vw, 6rem);
-			display: flex;
-			align-items: center;
-			gap: 0.75rem;
-			font-size: 1.1rem;
-			font-weight: bold;
-			letter-spacing: 0.08em;
-			text-transform: uppercase;
-		}
-
 		.brand-mark {
 			display: grid;
 			width: 2rem;
@@ -92,7 +118,7 @@
 
 		.eyebrow {
 			margin: 0 0 1rem;
-			color: #dbe6d4;
+			color: #d8eafb;
 			font-family: Arial, sans-serif;
 			font-size: 0.7rem;
 			font-weight: bold;
@@ -112,21 +138,30 @@
 		.welcome-copy p:last-child {
 			max-width: 27rem;
 			margin: 1.75rem 0 0;
-			color: #e0e9dc;
+			color: #e1effb;
 			font-size: 1.05rem;
 			line-height: 1.6;
 		}
 
 		.form-side {
+			position: absolute;
+			inset: 0;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			padding: clamp(2rem, 8vw, 7rem);
-			background: var(--paper);
+			z-index: 2;
+			padding: 2rem;
+			pointer-events: none;
 		}
 
 		.login-form {
 			width: min(100%, 25rem);
+			padding: clamp(2rem, 4vw, 3.5rem);
+			background: rgba(255, 255, 255, 0.96);
+			border: 1px solid rgba(216, 224, 235, 0.9);
+			border-radius: 8px;
+			box-shadow: 0 24px 70px rgba(18, 52, 92, 0.28);
+			pointer-events: auto;
 			animation: rise 0.7s ease-out both;
 		}
 
@@ -173,7 +208,7 @@
 
 		input:focus {
 			border-color: var(--leaf);
-			box-shadow: 0 0 0 3px rgba(47, 107, 79, 0.13);
+			box-shadow: 0 0 0 3px rgba(37, 99, 168, 0.13);
 		}
 
 		.password-wrap {
@@ -264,17 +299,25 @@
 
 		@media (max-width: 760px) {
 			.page {
-				grid-template-columns: 1fr;
+				min-height: 100svh;
 			}
 
 			.welcome {
-				min-height: 42vh;
+				min-height: 100svh;
 				padding: 7.5rem 2rem 2.5rem;
 			}
 
-			.brand {
-				top: 2rem;
-				left: 2rem;
+			.topbar {
+				align-items: flex-start;
+				padding: 1.25rem 1.5rem;
+			}
+
+			.info-links {
+				gap: 0.9rem;
+			}
+
+			.info-links a {
+				font-size: 0.68rem;
 			}
 
 			h1 {
@@ -286,7 +329,7 @@
 			}
 
 			.form-side {
-				align-items: flex-start;
-				padding: 3rem 2rem 4rem;
+				align-items: center;
+				padding: 1.5rem;
 			}
 		}
