@@ -22,9 +22,10 @@
 
 		.page {
 			position: relative;
-			display: block;
+			display: grid;
+			grid-template-columns: minmax(0, 1.1fr) minmax(26rem, 0.9fr);
 			min-height: 100vh;
-			overflow: hidden;
+			overflow-x: hidden;
 		}
 
 		.topbar {
@@ -53,7 +54,7 @@
 		}
 
 		.info-links a {
-			color: #e1effb;
+			color: var(--ink);
 			font: 0.78rem Arial, sans-serif;
 			font-weight: bold;
 			text-decoration: none;
@@ -61,12 +62,13 @@
 
 		.info-links a:hover,
 		.info-links a:focus-visible {
-			color: #fff;
+			color: var(--leaf-dark);
 			text-decoration: underline;
 		}
 
 		.welcome {
 			position: relative;
+			grid-column: 1;
 			display: flex;
 			align-items: flex-end;
 			min-height: 100vh;
@@ -144,14 +146,15 @@
 		}
 
 		.form-side {
-			position: absolute;
-			inset: 0;
+			position: relative;
+			grid-column: 2;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			z-index: 2;
-			padding: 2rem;
-			pointer-events: none;
+			min-height: 100vh;
+			padding: 7rem clamp(1.5rem, 5vw, 4rem) 2rem;
+			background: #e7f0f9;
 		}
 
 		.login-form {
@@ -161,7 +164,6 @@
 			border: 1px solid rgba(216, 224, 235, 0.9);
 			border-radius: 8px;
 			box-shadow: 0 24px 70px rgba(18, 52, 92, 0.28);
-			pointer-events: auto;
 			animation: rise 0.7s ease-out both;
 		}
 
@@ -321,19 +323,29 @@
 			to { opacity: 1; transform: translateY(0); }
 		}
 
-		@media (max-width: 760px) {
+		@media (max-width: 900px) {
 			.page {
+				display: block;
 				min-height: 100svh;
 			}
 
 			.welcome {
-				min-height: 100svh;
+				min-height: 32rem;
 				padding: 7.5rem 2rem 2.5rem;
 			}
 
 			.topbar {
 				align-items: flex-start;
 				padding: 1.25rem 1.5rem;
+			}
+
+			.info-links a {
+				color: #e1effb;
+			}
+
+			.info-links a:hover,
+			.info-links a:focus-visible {
+				color: #fff;
 			}
 
 			.info-links {
@@ -353,7 +365,58 @@
 			}
 
 			.form-side {
-				align-items: center;
+				position: relative;
+				inset: auto;
+				display: flex;
+				grid-column: auto;
+				align-items: stretch;
+				min-height: auto;
 				padding: 1.5rem;
+				background: #e7f0f9;
+			}
+
+			.login-form {
+				width: min(100%, 32rem);
+				margin: 0 auto;
+				padding: 1.5rem;
+			}
+
+			.form-heading {
+				margin-bottom: 1.75rem;
+			}
+
+			.form-options {
+				align-items: flex-start;
+				flex-wrap: wrap;
+			}
+		}
+
+		@media (max-width: 420px) {
+			.topbar {
+				flex-wrap: wrap;
+				gap: 0.75rem;
+			}
+
+			.info-links {
+				width: 100%;
+				justify-content: space-between;
+			}
+
+			.welcome {
+				padding-right: 1.25rem;
+				padding-left: 1.25rem;
+			}
+
+			.form-side {
+				padding: 1.25rem;
+			}
+
+			.ai-disclaimer {
+				padding: 0.9rem;
+			}
+
+			.form-options {
+				gap: 0.65rem;
+				font-size: 0.72rem;
 			}
 		}

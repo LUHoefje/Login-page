@@ -124,6 +124,12 @@ body {
         linear-gradient(135deg, #bed6e9 0%, #d9e6ed 52%, #f0e4d8 100%);
 }
 
+.hero-copy,
+.focus-card,
+.overview-card {
+    min-width: 0;
+}
+
 .hero-copy {
     max-width: 42rem;
 }
@@ -259,7 +265,7 @@ h1 em {
 
 .overview-grid {
     display: grid;
-    grid-template-columns: 1fr 1.25fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr);
     gap: 1rem;
     padding: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 8vw, 9rem);
     background: var(--paper);
@@ -407,5 +413,31 @@ h1 em {
     .home-footer {
         flex-direction: column;
         gap: 0.5rem;
+    }
+}
+
+@media (max-width: 900px) and (min-width: 761px) {
+    .home-header {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+    .home-hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 4rem 2rem 5rem;
+    }
+
+    .focus-card {
+        width: min(100%, 34rem);
+    }
+
+    .overview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 3rem 2rem;
+    }
+
+    .journal-card {
+        grid-column: span 2;
     }
 }
